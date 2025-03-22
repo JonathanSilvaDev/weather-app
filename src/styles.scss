@@ -1,1 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Criando camada de desfoque sobre a imagem */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://th.bing.com/th/id/OIP.DOOiQN4k-kv_k68AJuX0TAHaEy?rs=1&pid=ImgDetMain') no-repeat center center/cover;
+  filter: blur(4px); /* APLICANDO O DESFOQUE */
+  z-index: -1; /* Manda o fundo para trás do conteúdo */
+}
+
+/* Container principal */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Nome da cidade sobre a imagem */
+.location {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.more-info-label {
+  color: white;
+  font-size: 1.9em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+/* Imagem */
+.upper-data img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* Efeito de vidro fosco no input */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.search input {
+  // background: rgba(216, 210, 210, 0.2); /* Fundo com transparência */
+  backdrop-filter: blur(8px); /* Efeito de vidro */
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 1em;
+  color: black;
+  font-size: 0.8em;
+  text-align: center;
+  width: 70%;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 5rem;
+}
+
+.search {
+  margin: 2em 0 2em 0;
+  text-align: center;
+}
+
+/* Efeito ao focar no input */
+.search input:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  color: black;
+}
+
+/* Ícone de busca */
+.search-icon {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  padding: 8px;
+  margin-left: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-icon:hover {
+  background: black;
+}
+
+/* Área de informações */
+.lower-data {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 10px;
+  color: white;
+}
+
+/* Layout 2x2 para os pequenos cards */
+.more-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.temperature {
+  color: white;
+  font-size: 4em;
+  text-align: center;
+  font-weight: 900;
+}
