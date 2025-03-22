@@ -1,0 +1,71 @@
+<div class="container" *ngIf="weatherDatasInput">
+    <div class="upper-data">
+        <img src="https://i.pinimg.com/originals/de/52/92/de529278903b218f3d3d5586f0040f10.jpg" alt="sol"
+        *ngIf="weatherDatasInput.main.temp > 15"
+        />
+        
+        <img src="https://metsul.com/wp-content/uploads/2021/05/EF6A8491-1E5E-4558-B188-BF28AD062BB7.jpeg" alt="frio" 
+        *ngIf="weatherDatasInput.main.temp <= 15"/>
+
+        <div class="weather-data">
+            <div class="location">{{ weatherDatasInput.name }}</div>
+            <div class="temperature">
+                {{ weatherDatasInput.main.temp | number : "1.0-0" }}°C
+            </div>
+        </div>
+    </div>
+
+    <div class="lowe-data">
+        <div class="more-info-label">Mais informações</div>
+
+        <div class="more-info-container">
+            <div class="info-block">
+                <div class="info-block-label">
+                    <fa-icon size="lg" [icon]="minTemperatureIcon"></fa-icon>
+                    <span>Mínima</span>
+                </div>
+
+                <div class="info-block-value">
+                    {{ weatherDatasInput.main.temp_min }}°C
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <fa-icon size="lg" [icon]="maxTemperatureIcon"></fa-icon>
+                    <span>Máxima</span>
+                </div>
+
+                <div class="info-block-value">
+                    {{ weatherDatasInput.main.temp_max | number : "1.0-0" }}°C
+                </div>
+            
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <fa-icon size="lg" [icon]="humidityIcon"></fa-icon>
+                    <span>Umidade</span>
+                </div>
+    
+                <div class="info-block-value">
+                    {{ weatherDatasInput.main.humidity| number : "1.0-0" }}%
+                </div>
+            
+            </div>
+            
+            <div class="info-block">
+                <div class="info-block-label">
+                    <fa-icon size="lg" [icon]="windIcon"></fa-icon>
+                    <span>Vento</span>
+                </div>
+    
+                <div class="info-block-value">
+                    {{ weatherDatasInput.wind.speed| number : "1.0-0" }} Km/h
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+</div>
